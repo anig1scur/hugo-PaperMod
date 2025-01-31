@@ -1,7 +1,9 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
     <header class="entry-header">
-        <h1>{{ .Title | markdownify }}</h1>
+        {{ $emojis := slice "🍓" "🌰" "🍒" "🍊" "🍉" }}
+        {{ $randomEmoji := index (shuffle $emojis) 0 }}
+        <h1>{{ $randomEmoji }} {{ .Title | markdownify }}</h1>
     </header>
     <div class="entry-content">
         {{ .Content | markdownify }}
